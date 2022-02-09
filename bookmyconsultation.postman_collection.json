@@ -1,64 +1,28 @@
 {
 	"info": {
-		"_postman_id": "e597b8bb-795f-4497-b270-cec8d0221907",
+		"_postman_id": "c203b8fc-7e04-4b35-a734-f507631f491b",
 		"name": "bookmyconsultation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "get User",
+			"name": "Get Actuator Health Status",
 			"request": {
 				"auth": {
 					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{BMCAuthToken}}",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/test@gmasil.com",
+					"raw": "http://localhost:8080/actuator/health",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
-						"test@gmasil.com"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get User appointments",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{BMCAuthToken}}",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/users/test@gmasil.com/appointments",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"test@gmasil.com",
-						"appointments"
+						"actuator",
+						"health"
 					]
 				}
 			},
@@ -67,11 +31,14 @@
 		{
 			"name": "register",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\":\"fname\",\n    \"lastName\":\"lname\",\n    \"dob\":\"1903-08-06\",\n    \"mobile\":\"1234567890\",\n    \"password\":\"test\",\n    \"emailId\":\"test@gmasil.com\"\n}",
+					"raw": "{\n    \"firstName\":\"Akhil\",\n    \"lastName\":\"KUMAR\",\n    \"dob\":\"1993-12-03\",\n    \"mobile\":\"8077188113\",\n    \"password\":\"Akhil@123\",\n    \"emailId\":\"akhil@gmail.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -114,12 +81,12 @@
 					"basic": [
 						{
 							"key": "password",
-							"value": "test1",
+							"value": "Akhil@123",
 							"type": "string"
 						},
 						{
 							"key": "username",
-							"value": "test@gmasil.com",
+							"value": "akhil@gmail.com",
 							"type": "string"
 						},
 						{
@@ -160,12 +127,9 @@
 			"response": []
 		},
 		{
-			"name": "Logout",
+			"name": "get User",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
@@ -173,26 +137,43 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8080//auth/logout",
+					"raw": "http://localhost:8080/users/mahe.gk@gmail.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"",
-						"auth",
-						"logout"
+						"users",
+						"mahe.gk@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get User appointments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{BMCAuthToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/vinay@gmail.com/appointments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"vinay@gmail.com",
+						"appointments"
 					]
 				}
 			},
@@ -219,7 +200,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"fname\",\n    \"lastName\": \"lname\",\n    \"dob\": \"1903-08-06\",\n    \"mobile\": \"1234567890\",\n    \"password\": \"test\",\n    \"emailId\": \"test@gmasil.com\",\n    \n    \"address\": {\n        \"addressLine1\": \"add1\",\n        \"addressLine2\": \"add1\",\n        \"city\": \"BHN\",\n        \"state\": \"TN\",\n        \"postCode\": \"123456\"\n    }\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -262,7 +243,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"fname\",\n    \"lastName\": \"lname\",\n    \"dob\": \"1903-08-06\",\n    \"mobile\": \"1234567890\",\n    \"password\": \"test\",\n    \"emailId\": \"test@gmasil.com\",\n    \n    \"address\": {\n        \"addressLine1\": \"add1\",\n        \"addressLine2\": \"add1\",\n        \"city\": \"BHN\",\n        \"state\": \"TN\",\n        \"postCode\": \"123456\"\n    }\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -308,7 +289,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/doctors/UUID-34/timeSlots?date=2021-05-26",
+					"raw": "http://localhost:8080/doctors/UUID-30/timeSlots?date=2021-05-27",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -316,91 +297,14 @@
 					"port": "8080",
 					"path": [
 						"doctors",
-						"UUID-34",
+						"UUID-30",
 						"timeSlots"
 					],
 					"query": [
 						{
 							"key": "date",
-							"value": "2021-05-26"
+							"value": "2021-05-27"
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get a doctor",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{BMCAuthToken}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"fname\",\n    \"lastName\": \"lname\",\n    \"dob\": \"1903-08-06\",\n    \"mobile\": \"1234567890\",\n    \"password\": \"test\",\n    \"emailId\": \"test@gmasil.com\",\n    \n    \"address\": {\n        \"addressLine1\": \"add1\",\n        \"addressLine2\": \"add1\",\n        \"city\": \"BHN\",\n        \"state\": \"TN\",\n        \"postCode\": \"123456\"\n    }\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/actuator/health",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"actuator",
-						"health"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get an appointment",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"type": "text",
-						"value": "Bearer {{BMCAuthToken}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"fname\",\n    \"lastName\": \"lname\",\n    \"dob\": \"1903-08-06\",\n    \"mobile\": \"1234567890\",\n    \"password\": \"test\",\n    \"emailId\": \"test@gmasil.com\",\n    \n    \"address\": {\n        \"addressLine1\": \"add1\",\n        \"addressLine2\": \"add1\",\n        \"city\": \"BHN\",\n        \"state\": \"TN\",\n        \"postCode\": \"123456\"\n    }\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/appointments/f646f379-bc4b-47e3-a335-0fe4704931cb",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"appointments",
-						"f646f379-bc4b-47e3-a335-0fe4704931cb"
 					]
 				}
 			},
@@ -419,7 +323,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"fname\",\n    \"lastName\": \"lname\",\n    \"dob\": \"1903-08-06\",\n    \"mobile\": \"1234567890\",\n    \"password\": \"test\",\n    \"emailId\": \"test@gmasil.com\",\n    \"pan\":\"EDLSS5080L\",\n    \"address\": {\n        \"addressLine1\": \"add1\",\n        \"addressLine2\": \"add1\",\n        \"city\": \"BHN\",\n        \"state\": \"TN\",\n        \"postCode\": \"123456\"\n    }\n}",
+					"raw": "{\n   \n    \"firstName\": \"MAX\",\n    \"lastName\": \"KENNEDY\",\n    \"dob\": \"1991-11-11\",\n    \"mobile\": \"9928327211\",\n    \"password\": \"Max@123\",\n    \"emailId\": \"max@gmail.com\",\n    \"pan\":\"BTLQR9678N\",\n    \"address\": {\n       \n        \"addressLine1\": \"201 STREET\",\n        \"addressLine2\": \"TEXAS\",\n        \"city\": \"HOUSTON\",\n        \"state\": \"TEXAS\",\n        \"postcode\": \"77001\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -441,6 +345,54 @@
 			"response": []
 		},
 		{
+			"name": "get a doctor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJraWQiOiIwZDhhMmU2Yi1hNzQxLTRkMDMtOGE5Ny1hNGY0ZTQxNDEzZTEiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhdWQiOiJ0ZXN0QGdtYWlsLmNvbSIsImlzcyI6Imh0dHBzOi8vYm9va215Y29uc3VsdGF0aW9uLmNvbSIsImV4cCI6MTY0Mzg3NSwiaWF0IjoxNjQzODQ2fQ.ImcqeJXX7KYOb2TUCaDuDcBBHEPPwxco5SyeoS7nJfitazNrgoYDHK7A6XVSH8X4nIxC59w8meSTgwH-MbS2mg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{BMCAuthToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/doctors/UUID-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"doctors",
+						"UUID-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "book an appointment",
 			"request": {
 				"method": "POST",
@@ -453,7 +405,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"doctorId\": \"UUID-34\",\n    \"doctorName\": \"Meghan jordan\",\n    \"userId\": \"test@gmasil.com\",\n    \"userName\": \"fname\",\n    \"userEmailId\": \"test@gmasil.com\",\n    \"timeSlot\": \"05PM-06PM\",\n    \"appointmentDate\": \"2021-05-26\",\n    \"createdDate\": \"\",\n    \"symptoms\": \"TEST\",\n    \"priorMedicalHistory\": \"NA\"\n}\n\n    \"doctorId\": \"UUID-34\",\n    \"availableDate\": \"2021-05-26\",",
+					"raw": "{\n    \"doctorId\": \"UUID-34\",\n    \"doctorName\": \"Meghan jordan\",\n    \"userId\": \"sunil@gmail.com\",\n    \"userName\": \"Sunil\",\n    \"userEmailId\": \"sunil@gmail.com\",\n    \"timeSlot\": \"06PM-09PM\",\n    \"appointmentDate\": \"2021-11-16\",\n    \"createdDate\": \"2021-05-02\",\n    \"symptoms\": \"fever\",\n    \"priorMedicalHistory\": \"NA\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -461,14 +413,53 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/appointments",
+					"raw": "http://localhost:8080/appointments/bookAppointment",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"appointments"
+						"appointments",
+						"bookAppointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get an appointment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{BMCAuthToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/appointments/da55acd8-868f-4b4d-a425-38aeee5c5e9d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appointments",
+						"da55acd8-868f-4b4d-a425-38aeee5c5e9d"
 					]
 				}
 			},
@@ -487,7 +478,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"appointmentId\":\"f646f379-bc4b-47e3-a335-0fe4704931cb\",\n    \"doctorId\":\"UUID-34\",\n    \"rating\":\"1\",\n    \"comments\":\"asdad\"\n}",
+					"raw": "{\n    \"appointmentId\":\"da55acd8-868f-4b4d-a425-38aeee5c5e9d\",\n    \"doctorId\":\"UUID-30\",\n    \"rating\":\"3\",\n    \"comments\":\"Good\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -503,6 +494,41 @@
 					"port": "8080",
 					"path": [
 						"ratings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{BMCAuthToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"logout"
 					]
 				}
 			},

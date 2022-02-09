@@ -43,7 +43,7 @@ public class AuthFilter extends ApiFilter {
 
 		final String pathInfo = servletRequest.getRequestURI();
 		logger.info("Path Info"+pathInfo);
-		if (!pathInfo.contains("register") && !pathInfo.contains("actuator") &&  !pathInfo.contains("favicon.ico") && !pathInfo.contains("doctors") && !pathInfo.contains("api")) {
+		if (!pathInfo.contains("register") && !pathInfo.contains("actuator") &&  !pathInfo.contains("favicon.ico") && !pathInfo.contains("doctors")){
 			final String authorization = servletRequest.getHeader(HttpHeaders.AUTHORIZATION);
 			logger.info("Authorization"+authorization);
 			if (StringUtils.isEmpty(authorization)) {
@@ -66,6 +66,7 @@ public class AuthFilter extends ApiFilter {
 				}
 			}
 		}
+		System.out.println("Else");
 		filterChain.doFilter(servletRequest, servletResponse);
 	}
 
